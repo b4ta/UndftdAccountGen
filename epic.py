@@ -50,7 +50,7 @@ def start():
 	url = "https://undefeated.com/account/"
 	for i in range(int(count)):
 		data["customer[email]"] = email
-		account_request = requests.post(url, json=data)
+		account_request = s.post(url, json=data)
 		if account_request.status_code == 302:
 			print("Account: " + email + " made successfully.")
 			account_string = email + ":" + password
