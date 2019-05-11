@@ -1,5 +1,8 @@
 import requests, time, random, os, time
 import threading
+from proxymanager import ProxyManager
+proxy_manager = ProxyManager('proxies.txt')
+random_proxy = proxy_manager.random_proxy()
 proxyList = ['insertProxiesHere']
 
 # To-Do List
