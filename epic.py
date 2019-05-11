@@ -8,8 +8,6 @@ import threading
 # - Be able to detect captchas with https://undefeated.com/challenge
 # - Make it create (for example) 2 separate accounts instead of making the same account twice when count = 2
 # - Simplify code
-# - Pull proxies from proxies.txt so my proxies aren't public
-# - Add a config.json
 # - Maybe use selenium, would be slower but could fix captcha stuff
 def start():
 	s = requests.session()
@@ -34,9 +32,6 @@ def start():
 			print("Account: " + email + " made successfully.")
 			account_string = email + ":" + password
 			open("accounts.txt", "a").write("\n" + account_string)
-		elif account_request.status_code == 429:
-			print("Banned for the time being. Resting for three minutes")
-			time.sleep(180)
 		else:
 			print("Failed to make account " + email)
 			print("Exited with status code: ".format(account_request.status_code))
