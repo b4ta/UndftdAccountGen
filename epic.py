@@ -1,9 +1,5 @@
 import requests, time, random, os, time
 import threading
-from proxymanager import ProxyManager
-proxy_manager = ProxyManager('proxies.txt')
-random_proxy = proxy_manager.random_proxy()
-proxyList = ['insertProxiesHere']
 
 # To-Do List
 # - Get it to work lol
@@ -17,7 +13,6 @@ proxyList = ['insertProxiesHere']
 # - Maybe use selenium, would be slower but could fix captcha stuff
 def start():
 	s = requests.session()
-	s.proxies = random.choice(proxyList)
 	print("UNDFTD Account Gen Beta")
 	username = input("Enter a username:")
 	domain = input("Enter a catchall domain:")
@@ -34,7 +29,7 @@ def start():
 	url = "https://undefeated.com/account/"
 	for i in range(int(count)):
 		data["customer[email]"] = email
-		account_request = s.post(url,json=data,headers=response_headers&request_headers)
+		account_request = s.post(url,json=data)
 		if account_request.status_code == 302:
 			print("Account: " + email + " made successfully.")
 			account_string = email + ":" + password
