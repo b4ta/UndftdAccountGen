@@ -16,8 +16,6 @@ def start():
 	count = input("Enter the number of accounts:")
 	password = input("Enter your password:")
 	print("Now generating " + count + " accounts under the " + domain + " domain.")
-	random_username = username + "+" + str(random.randint(1,1000))
-	email = random_username + "@" + domain
 	data = {
 		"form_type": "create_customer",
 		"customer[email]": "email",
