@@ -6,7 +6,6 @@ import threading
 # - Use proxies
 # - Rotate proxies when captcha is detected
 # - Be able to detect captchas with https://undefeated.com/challenge
-# - Make it create (for example) 2 separate accounts instead of making the same account twice when count = 2
 # - Simplify code
 # - Maybe use selenium, would be slower but could fix captcha stuff
 def start():
@@ -26,6 +25,8 @@ def start():
 		}
 	url = "https://undefeated.com/account/"
 	for i in range(int(count)):
+		random_username = username + "+" + str(random.randint(1,1000))
+		email = random_username + "@" + domain
 		data["customer[email]"] = email
 		account_request = s.post(url,json=data)
 		if account_request.status_code == 302:
