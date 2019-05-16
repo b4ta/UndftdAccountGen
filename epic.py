@@ -33,6 +33,6 @@ def start():
 			open("accounts.txt", "a").write("\n" + account_string)
 		else:
 			print("Failed to make account " + email)
-			print("Exited with status code: ".format(account_request.status_code))
+			print("Required Captcha (most likely). Wait for fix")
 			time.sleep(3)
 start()
