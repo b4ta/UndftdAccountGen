@@ -21,7 +21,7 @@ def start():
 		data["customer[email]"] = email
 		data["customer[password]"] = password
 		account_request = s.post(url,json=data)
-		if account_request.status = 302:
+		if account_request.status == 302:
 			print("Account: " + email + " made successfully.")
 			account_string = email + ":" + password
 			open("accounts.txt", "a").write("\n" + account_string)
