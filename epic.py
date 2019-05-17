@@ -1,6 +1,7 @@
 import requests, time, random, threading
 # - Detect captcha and use proxies to get around it
 # - What if I use selenium
+# - Add breakpoints and test to really see if it is captcha
 def start():
 	s = requests.session()
 	print("UNDFTD Account Gen Beta")
